@@ -20,7 +20,7 @@ export default function Login({navigation}) {
         )
 
         if(isLogin) {
-            navigation.navigate('Home')
+            navigation.navigate('Main')
         } else{
             Alert.alert("Thông báo", "Sai tài khoản hoặc mật khẩu")
         }

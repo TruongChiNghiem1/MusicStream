@@ -1,12 +1,12 @@
 import {ScrollView, Text, View} from "react-native";
 import * as React from "react";
 
-export default function Home () {
+export default function Feed () {
     return (
         <View>
             <ScrollView>
                 <View>
-                    <Text>Home helo</Text>
+                    <Text>Feed helo</Text>
                 </View>
             </ScrollView>
         </View>
