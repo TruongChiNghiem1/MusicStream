@@ -1,16 +1,17 @@
-import {ScrollView, Text, TextInput, View, StyleSheet, Dimensions } from "react-native";
+import {ScrollView, Text, TextInput, View, StyleSheet, Dimensions, Image, TouchableOpacity} from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome5";
 import * as React from "react";
-import Carousel from 'react-native-snap-carousel';
-export default function Home () {
-    const _renderItem = ({item, index}) => {
-        return (
-            <View style={styles.slide}>
-                <Text style={styles.title}>{ item.title }</Text>
-            </View>
-        );
-    }
+import Carousel from "react-native-reanimated-carousel";
+import imgSuggestions from "../../assets/images/home/Image 8.png";
+import imgChart from "../../assets/images/home/Image 13.png";
+import imgTrending from "../../assets/images/home/Image 16.png";
 
+export default function Home () {
+    const width = Dimensions.get('window').width;
+    const imgSuggestions = require('../../assets/images/home/Image 8.png')
+    const imgChart = require('../../assets/images/home/Image 13.png')
+    const imgTrending = require('../../assets/images/home/Image 16.png')
+    const imgPopular = require('../../assets/images/home/Image 10.png')
     return (
         <ScrollView>
             <View style={{
@@ -63,13 +64,295 @@ export default function Home () {
                         fontWeight: 'bold',
                     }}>Suggestions for you</Text>
                 </View>
-                <View>
+                <View
+                    style={{
+                        marginTop: 15
+                    }}
+                >
                     <Carousel
-                        ref={(c) => { this._carousel = c; }}
-                        data={this.state.entries}
-                        renderItem={this._renderItem}
-                        sliderWidth={sliderWidth}
-                        itemWidth={itemWidth}
+                        width={260}
+                        height={320}
+                        autoPlay={false}
+                        data={[...new Array(6).keys()]}
+                        scrollAnimationDuration={1000}
+                        pagingEnabled={true}
+                        style={{
+                            overflow: 'visible',
+                        }}
+                        renderItem={({ item }) => (
+                            <View
+                                style={{
+                                    width: 200,
+                                }}
+                            >
+                                <Image style={{
+                                    width: 235,
+                                    height: 320,
+                                    borderRadius: 5
+                                }} source={imgSuggestions} />
+                                <View style={{
+                                    position: 'absolute',
+                                    top: 230,
+                                    backgroundColor: 'rgba(0,0,0,0.42)',
+                                    width: 235,
+                                    height: 90
+                                }}>
+                                    <Text style={{
+                                        fontSize: 23,
+                                        color: 'white',
+                                        marginTop: 15,
+                                        marginLeft:20,
+                                        fontWeight: 'bold',
+                                    }}>Reflection</Text>
+                                    <Text style={{
+                                        fontSize: 20,
+                                        color: 'white',
+                                        marginTop: 5,
+                                        marginLeft: 20,
+                                    }}>Christina Aguilera</Text>
+                                </View>
+                            </View>
+                        )}
+                        mode="stack"
+                        modeConfig={{
+                            stackInterval: 1,
+                            moveSize: 10,
+                            scaleInterval: 0.08,
+                            rotateZDeg: 135,
+                            snapDirection: 'left',
+                        }}
+                    />
+                </View>
+
+                <View style={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    marginTop: 20,
+                }}>
+                    <Text style={{
+                        fontSize: 25,
+                        fontWeight: 'bold',
+                    }}>Charts</Text>
+                    <TouchableOpacity>
+                        <Text style={{
+                            fontSize: 17,
+                            color: 'rgba(0,0,0,0.37)'
+                        }}>See all</Text>
+                    </TouchableOpacity>
+                </View>
+                <View
+                    style={{
+                        marginTop: 10
+                    }}
+                >
+                    <Carousel
+                        width={160}
+                        height={136}
+                        autoPlay={false}
+                        data={[...new Array(6).keys()]}
+                        scrollAnimationDuration={1000}
+                        pagingEnabled={true}
+                        style={{
+                            overflow: 'visible',
+                        }}
+                        renderItem={({ item }) => (
+                            <View
+                                style={{
+                                    width: 160,
+                                }}
+                            >
+                                <Image style={{
+                                    width: 136,
+                                    height: 136,
+                                    borderRadius: 5
+                                }} source={imgChart} />
+                                <View style={{
+                                    position: 'absolute',
+                                    width: 136,
+                                    height: 136,
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                    borderRadius: 5
+                                }}>
+                                    <Text style={{
+                                        fontSize: 23,
+                                        color: 'white',
+                                        fontWeight: 'bold',
+                                        marginBottom: 15,
+                                    }}>Top 50</Text>
+                                    <Text style={{
+                                        fontSize: 15,
+                                        color: 'white',
+                                    }}>Canada</Text>
+                                </View>
+                                <Text style={{
+                                    color: 'rgba(126,126,126,0.48)',
+                                    fontSize: 17,
+                                }}>Daily chart-toppers update</Text>
+                            </View>
+                        )}
+                        mode="stack"
+                        modeConfig={{
+                            stackInterval: 1,
+                            moveSize: 10,
+                            scaleInterval: 0.08,
+                            rotateZDeg: 135,
+                            snapDirection: 'left',
+                        }}
+                    />
+                </View>
+
+                <View style={{
+                    marginTop: 60,
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                }}>
+                    <Text style={{
+                        fontSize: 25,
+                        fontWeight: 'bold',
+                    }}>Trending albums</Text>
+                    <TouchableOpacity>
+                        <Text style={{
+                            fontSize: 17,
+                            color: 'rgba(0,0,0,0.37)'
+                        }}>See all</Text>
+                    </TouchableOpacity>
+                </View>
+                <View
+                    style={{
+                        marginTop: 10,
+                    }}
+                >
+                    <Carousel
+                        width={160}
+                        height={170}
+                        autoPlay={false}
+                        data={[...new Array(6).keys()]}
+                        scrollAnimationDuration={1000}
+                        pagingEnabled={true}
+                        style={{
+                            overflow: 'visible',
+                        }}
+                        renderItem={({ item }) => (
+                            <View
+                                style={{
+                                    width: 160,
+                                }}
+                            >
+                                <Image style={{
+                                    width: 136,
+                                    height: 136,
+                                    borderRadius: 5
+                                }} source={imgTrending} />
+                                <Text style={{
+                                    color: 'rgba(43,43,43,0.75)',
+                                    fontSize: 17,
+                                    fontWeight: 'bold',
+                                    marginTop: 5
+                                }}>ME</Text>
+                                <Text style={{
+                                    color: 'rgba(126,126,126,0.48)',
+                                    fontSize: 17,
+                                }}>Jessica Gonzalez</Text>
+                            </View>
+                        )}
+                        mode="stack"
+                        modeConfig={{
+                            stackInterval: 1,
+                            moveSize: 10,
+                            scaleInterval: 0.08,
+                            rotateZDeg: 135,
+                            snapDirection: 'left',
+                        }}
+                    />
+                </View>
+
+                <View style={{
+                    marginTop: 40,
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                }}>
+                    <Text style={{
+                        fontSize: 25,
+                        fontWeight: 'bold',
+                    }}>Popular artists</Text>
+                    <TouchableOpacity>
+                        <Text style={{
+                            fontSize: 17,
+                            color: 'rgba(0,0,0,0.37)'
+                        }}>See all</Text>
+                    </TouchableOpacity>
+                </View>
+                <View
+                    style={{
+                        marginTop: 10,
+                    }}
+                >
+                    <Carousel
+                        width={160}
+                        height={220}
+                        autoPlay={false}
+                        data={[...new Array(6).keys()]}
+                        scrollAnimationDuration={1000}
+                        pagingEnabled={true}
+                        style={{
+                            overflow: 'visible',
+                        }}
+                        renderItem={({ item }) => (
+                            <View
+                                style={{
+                                    width: 130,
+                                }}
+                            >
+                                <Image style={{
+                                    width: 136,
+                                    height: 136,
+                                    borderRadius: 5
+                                }} source={imgPopular} />
+                                <Text style={{
+                                    color: 'rgba(85,85,85,0.81)',
+                                    fontSize: 17,
+                                    marginTop: 10,
+                                    textAlign: 'center'
+                                }}>Jennifer Wilson</Text>
+                                <View style={{
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                    marginTop: 10
+                                }}>
+                                    <TouchableOpacity style={{
+                                        backgroundColor: 'black',
+                                        width: 70,
+                                        height: 30,
+                                        borderRadius: 50,
+                                        display: 'flex',
+                                        justifyContent: 'center',
+                                        alignItems: 'center',
+                                    }}>
+                                        <Text style={{
+                                            color: 'white',
+                                            fontSize: 16
+                                        }}>Follow</Text>
+                                    </TouchableOpacity>
+                                </View>
+                            </View>
+                        )}
+                        mode="stack"
+                        modeConfig={{
+                            stackInterval: 1,
+                            moveSize: 10,
+                            scaleInterval: 0.08,
+                            rotateZDeg: 135,
+                            snapDirection: 'left',
+                        }}
                     />
                 </View>
             </View>
