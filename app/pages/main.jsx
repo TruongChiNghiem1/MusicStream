@@ -35,7 +35,6 @@ export default function Main({navigation}) {
         }}>
             <Header/>
 
-
             <TabBar
                 unselectedTintColor="#949494"
                 tintColor="#33A3F4"
@@ -45,7 +44,7 @@ export default function Main({navigation}) {
                     icon={<Icon name="home" />}
                     selected={state.selectedTab === 'home'}
                     onPress={() => onChangeTab('home')}>
-                    <Home/>
+                    <Home navigation={navigation}/>
                 </TabBar.Item>
                 <TabBar.Item
                     icon={<Icon name="search" />}
