@@ -1,54 +1,50 @@
-import {ImageBackground, Text, View} from "react-native";
-import Icon from "react-native-vector-icons/FontAwesome5";
-import * as React from "react";
-import imgBackground from "../../assets/images/play/Image 29.png";
+import React, { useEffect } from 'react';
+import { View, Text, Button, StyleSheet } from 'react-native';
+import SoundPlayer from 'react-native-sound-player';
 
-export default function Play() {
+const MusicPlayer = () => {
+    useEffect(() => {
+        // Tải nhạc khi component được mount
+        // SoundPlayer.loadUrl('https://example.com/your-audio-file.mp3'); // Thay thế bằng URL của file âm thanh
+
+        return () => {
+            SoundPlayer.stop();
+        };
+    }, []);
+
+    const playMusic = () => {
+        SoundPlayer.play();
+    };
+
+    const pauseMusic = () => {
+        SoundPlayer.pause();
+    };
+
+    const stopMusic = () => {
+        SoundPlayer.stop();
+    };
+
     return (
-        <ImageBackground style={{
-            flex: 1,
-            justifyContent: 'space-between',
-        }} source={imgBackground} resizeMode="cover">
-            <View style={{
-                paddingTop: 25,
-                backgroundColor: 'rgba(0,0,0,0.34)'
-            }}>
-                <View style={{
-                    padding: 20,
-                }}>
-                    <View style={{
-                        flexDirection: 'row',
-                        justifyContent: 'space-between'
-                    }}>
-                        <Text style={{
-                            color: 'white',
-                            fontSize: 16,
-                        }}>Play</Text>
-                        <Icon style={{
-                            color: 'white',
-                        }} name="chevron-down" size={18} />
-                    </View>
-                </View>
-            </View>
+        <View style={styles.container}>
+            <Text style={styles.title}>Music Player</Text>
+            <Button title="Play" onPress={playMusic} />
+            <Button title="Pause" onPress={pauseMusic} />
+            <Button title="Stop" onPress={stopMusic} />
+        </View>
+    );
+};
 
-            <View style={{
-                backgroundColor: 'rgba(0,0,0,0.34)'
-            }}>
-                <View style={{
-                    padding: 20,
-                }}>
-                    <Text style={{
-                        color: 'white',
-                        fontSize: 20,
-                        fontWeight: 'bold',
-                        marginBottom: 5
-                    }}>FLOWER</Text>
-                    <Text style={{
-                        color: 'white',
-                        fontSize: 14,
-                    }}>Jessica Gonzalez</Text>
-                </View>
-            </View>
-        </ImageBackground>
-    )
-}
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#f5f5f5',
+    },
+    title: {
+        fontSize: 24,
+        marginBottom: 20,
+    },
+});
+
+export default MusicPlayer;
