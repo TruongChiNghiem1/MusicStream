@@ -1,4 +1,4 @@
-import {Alert, Image, Text, TextInput, Touchable, TouchableOpacity, View} from "react-native";
+import {Alert, Image, Text, TextInput, TouchableOpacity, View} from "react-native";
 import {useState} from "react";
 
 export default function Login({navigation}) {
@@ -35,6 +35,11 @@ export default function Login({navigation}) {
             flex: 1,
             backgroundColor: 'white'
         }}>
+            <View
+                
+            >
+
+            </View>
             <Image style={{
                 width: 70,
                 height: 50,

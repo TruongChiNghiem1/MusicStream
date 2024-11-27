@@ -1,5 +1,4 @@
-import {Alert, Image, ImageBackground, Text, TextInput, Touchable, TouchableOpacity, View} from "react-native";
-import {useState} from "react";
+import {ImageBackground, Text, TouchableOpacity, View} from "react-native";
 const imgBackground = require("../../assets/images/welcome/Sound.png")
 const imgLogo = require("../../assets/images/welcome/Image 4.png")
 export default function Welcome({navigation}) {
