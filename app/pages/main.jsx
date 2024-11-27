@@ -35,7 +35,6 @@ export default function Main({navigation}) {
         }}>
             <Header/>
 
-
             <TabBar
                 unselectedTintColor="#949494"
                 tintColor="#33A3F4"
@@ -45,28 +44,28 @@ export default function Main({navigation}) {
                     icon={<Icon name="home" />}
                     selected={state.selectedTab === 'home'}
                     onPress={() => onChangeTab('home')}>
-                    <Home/>
+                    <Home navigation={navigation}/>
                 </TabBar.Item>
                 <TabBar.Item
                     icon={<Icon name="search" />}
                     title="Search"
                     selected={state.selectedTab === 'search'}
                     onPress={() => onChangeTab('search')}>
-                    <Search/>
+                    <Search navigation={navigation}/>
                 </TabBar.Item>
                 <TabBar.Item
                     icon={<Icon name="newspaper" />}
                     title="Feed"
                     selected={state.selectedTab === 'feed'}
                     onPress={() => onChangeTab('feed')}>
-                    <Feed/>
+                    <Feed navigation={navigation}/>
                 </TabBar.Item>
                 <TabBar.Item
                     icon={<Icon name="book" />}
                     title="Library"
                     selected={state.selectedTab === 'library'}
                     onPress={() => onChangeTab('library')}>
-                    <Library/>
+                    <Library navigation={navigation}/>
                 </TabBar.Item>
             </TabBar>
 
