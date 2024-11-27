@@ -9,6 +9,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import Main from "./pages/main";
 import Play from "./pages/play";
 import PlayList from "./pages/playList";
+import DetailPopularArtistsDetail from "./pages/detailPopularArtistsDetail";
 
 const Stack = createNativeStackNavigator();
 const imgAvtHome = require('../assets/images/home/Avatar 1.png')
@@ -102,7 +103,12 @@ export default function RootLayout() {
                   name="playList"
                   component={PlayList}
                   options={({ navigation }) => ({
-
+                  })}
+              />
+              <Stack.Screen
+                  name="DetailPopularArtistsDetail"
+                  component={DetailPopularArtistsDetail}
+                  options={({ navigation }) => ({
                   })}
               />
           </Stack.Navigator>
