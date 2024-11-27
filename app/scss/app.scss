@@ -1,0 +1,9 @@
+$primary-color: #e76c00;
+$secondary-color: #604123;
+$primary-background-color: #000000;
+$primary-text-color: #ffffff;
+
+.button-primary{
+    background: $primary-background-color !important;
+    color: $primary-text-color !important;
+}

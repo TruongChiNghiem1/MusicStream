@@ -109,15 +109,13 @@ export default function Login({navigation}) {
                 marginTop: 25
             }}>
                 <TouchableOpacity
+                    classname='button-primary'
                     onPress={toLogin}
-
                     style={{
                         borderWidth: 1,
                         width: 300,
                         height: 45,
-                        backgroundColor: '#019d80',
-                        borderColor: '#019d80',
-                        borderRadius: 15,
+                        borderRadius: 60,
                         display: 'flex',
                         justifyContent: 'center',
                         alignItems: 'center'
