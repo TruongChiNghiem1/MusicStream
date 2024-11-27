@@ -15,15 +15,15 @@ export default function Login({navigation}) {
     }]
 
     const toLogin = () => {
-        var isLogin = arrLogin.some(userPass =>
-            userPass.username === username && userPass.password === password
-        )
-
-        if(isLogin) {
+        // var isLogin = arrLogin.some(userPass =>
+        //     userPass.username === username && userPass.password === password
+        // )
+        //
+        // if(isLogin) {
             navigation.navigate('Main')
-        } else{
-            Alert.alert("Thông báo", "Sai tài khoản hoặc mật khẩu")
-        }
+        // } else{
+        //     Alert.alert("Thông báo", "Sai tài khoản hoặc mật khẩu")
+        // }
     }
 
     return (

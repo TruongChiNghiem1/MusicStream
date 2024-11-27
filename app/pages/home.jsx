@@ -6,7 +6,7 @@ import imgSuggestions from "../../assets/images/home/Image 8.png";
 import imgChart from "../../assets/images/home/Image 13.png";
 import imgTrending from "../../assets/images/home/Image 16.png";
 
-export default function Home () {
+export default function Home ({navigation}) {
     const width = Dimensions.get('window').width;
     const imgSuggestions = require('../../assets/images/home/Image 8.png')
     const imgChart = require('../../assets/images/home/Image 13.png')
@@ -158,7 +158,8 @@ export default function Home () {
                             overflow: 'visible',
                         }}
                         renderItem={({ item }) => (
-                            <View
+                            <TouchableOpacity
+                                onPress={() => navigation.navigate('chartDetail')}
                                 style={{
                                     width: 160,
                                 }}
@@ -192,7 +193,7 @@ export default function Home () {
                                     color: 'rgba(126,126,126,0.48)',
                                     fontSize: 17,
                                 }}>Daily chart-toppers update</Text>
-                            </View>
+                            </TouchableOpacity>
                         )}
                         mode="stack"
                         modeConfig={{
