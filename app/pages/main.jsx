@@ -51,21 +51,21 @@ export default function Main({navigation}) {
                     title="Search"
                     selected={state.selectedTab === 'search'}
                     onPress={() => onChangeTab('search')}>
-                    <Search/>
+                    <Search navigation={navigation}/>
                 </TabBar.Item>
                 <TabBar.Item
                     icon={<Icon name="newspaper" />}
                     title="Feed"
                     selected={state.selectedTab === 'feed'}
                     onPress={() => onChangeTab('feed')}>
-                    <Feed/>
+                    <Feed navigation={navigation}/>
                 </TabBar.Item>
                 <TabBar.Item
                     icon={<Icon name="book" />}
                     title="Library"
                     selected={state.selectedTab === 'library'}
                     onPress={() => onChangeTab('library')}>
-                    <Library/>
+                    <Library navigation={navigation}/>
                 </TabBar.Item>
             </TabBar>
 

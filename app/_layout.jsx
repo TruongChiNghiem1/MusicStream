@@ -8,6 +8,7 @@ import ChartDetail from './pages/chartDetail';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import Main from "./pages/main";
 import Play from "./pages/play";
+import PlayList from "./pages/playList";
 
 const Stack = createNativeStackNavigator();
 const imgAvtHome = require('../assets/images/home/Avatar 1.png')
@@ -95,7 +96,13 @@ export default function RootLayout() {
                   name="Play"
                   component={Play}
                   options={({ navigation }) => ({
-                      headerShown: false,
+                  })}
+              />
+              <Stack.Screen
+                  name="playList"
+                  component={PlayList}
+                  options={({ navigation }) => ({
+
                   })}
               />
           </Stack.Navigator>

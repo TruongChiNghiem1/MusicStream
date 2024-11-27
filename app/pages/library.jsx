@@ -4,6 +4,8 @@ import * as React from "react";
 import Icon from "react-native-vector-icons/FontAwesome5";
 import imgDot from "../../assets/images/chart_detail/dot.png";
 import imgShape from "../../assets/images/chart_detail/Image 23.png";
+import Carousel from "react-native-reanimated-carousel";
+import PlayList from "./playList";
 
 export default function Library({navigation}) {
     const imgChart = require('../../assets/images/home/Image 13.png')
@@ -15,21 +17,74 @@ export default function Library({navigation}) {
             flex: 1,
             backgroundColor: 'white',
         }}>
-            <View>
+            <View style={{
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+            }}>
                 <Text style={{
                     fontSize: 20,
-                    marginBottom: 40
+                    marginBottom: 20,
+                    fontWeight: 'bold'
                 }}>Your library</Text>
-
+                <TouchableOpacity>
+                    <Icon style={{
+                        marginRight: 10,
+                        fontSize: 20,
+                    }} name="search" size={20} />
+                </TouchableOpacity>
             </View>
 
+            <View
+                style={{
+                }}
+            >
+                <Carousel
+                    width={100}
+                    height={136}
+                    autoPlay={false}
+                    data={[...new Array(6).keys()]}
+                    scrollAnimationDuration={1000}
+                    pagingEnabled={true}
+                    style={{
+                        overflow: 'visible',
+                    }}
+                    renderItem={({ item }) => (
+                        <TouchableOpacity
+                            style={{
+                                backgroundColor: 'rgba(211,211,211,0.31)',
+                                width: 90,
+                                height: 30,
+                                borderRadius: 60,
+                                display: 'flex',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                            }}
+                            onPress={() => navigation.navigate('playList')}
+                        >
+                            <Text style={{
+                                color: 'rgba(67,67,67,0.8)',
+                                fontSize: 17,
+                            }}>Playlists</Text>
+                        </TouchableOpacity>
+                    )}
+                    mode="stack"
+                    modeConfig={{
+                        stackInterval: 1,
+                        moveSize: 10,
+                        scaleInterval: 0.08,
+                        rotateZDeg: 135,
+                        snapDirection: 'left',
+                    }}
+                />
+            </View>
 
             <ScrollView style={{
+                marginTop: 50
             }}>
                 <TouchableOpacity style={{
                     marginBottom: 12
                 }}
-                                  onPress={() => navigation.navigate('Play')}>
+                    onPress={() => navigation.navigate('Play')}>
                     <View style={{
                         flexDirection: 'row',
                         justifyContent: 'space-between',
@@ -86,7 +141,7 @@ export default function Library({navigation}) {
                         <Icon style={{
                             marginRight: 10,
                             color: '#888888',
-                        }} name="ellipsis-h" size={18} />
+                        }} name="heart" size={18} />
                     </View>
                 </TouchableOpacity>
 
@@ -149,7 +204,7 @@ export default function Library({navigation}) {
                         <Icon style={{
                             marginRight: 10,
                             color: '#888888',
-                        }} name="ellipsis-h" size={18} />
+                        }} name="heart" size={18} />
                     </View>
                 </View>
 
@@ -212,7 +267,7 @@ export default function Library({navigation}) {
                         <Icon style={{
                             marginRight: 10,
                             color: '#888888',
-                        }} name="ellipsis-h" size={18} />
+                        }} name="heart" size={18} />
                     </View>
                 </View>
 
@@ -275,7 +330,7 @@ export default function Library({navigation}) {
                         <Icon style={{
                             marginRight: 10,
                             color: '#888888',
-                        }} name="ellipsis-h" size={18} />
+                        }} name="heart" size={18} />
                     </View>
                 </View>
 
@@ -338,7 +393,7 @@ export default function Library({navigation}) {
                         <Icon style={{
                             marginRight: 10,
                             color: '#888888',
-                        }} name="ellipsis-h" size={18} />
+                        }} name="heart" size={18} />
                     </View>
                 </View>
 
@@ -401,7 +456,7 @@ export default function Library({navigation}) {
                         <Icon style={{
                             marginRight: 10,
                             color: '#888888',
-                        }} name="ellipsis-h" size={18} />
+                        }} name="heart" size={18} />
                     </View>
                 </View>
 
@@ -464,7 +519,7 @@ export default function Library({navigation}) {
                         <Icon style={{
                             marginRight: 10,
                             color: '#888888',
-                        }} name="ellipsis-h" size={18} />
+                        }} name="heart" size={18} />
                     </View>
                 </View>
 
@@ -527,7 +582,7 @@ export default function Library({navigation}) {
                         <Icon style={{
                             marginRight: 10,
                             color: '#888888',
-                        }} name="ellipsis-h" size={18} />
+                        }} name="heart" size={18} />
                     </View>
                 </View>
 
@@ -590,7 +645,7 @@ export default function Library({navigation}) {
                         <Icon style={{
                             marginRight: 10,
                             color: '#888888',
-                        }} name="ellipsis-h" size={18} />
+                        }} name="heart" size={18} />
                     </View>
                 </View>
             </ScrollView>
