@@ -37,7 +37,7 @@ export default function Main({navigation}) {
 
             <TabBar
                 unselectedTintColor="#949494"
-                tintColor="#33A3F4"
+                tintColor="#ff5400"
                 barTintColor="#f5f5f5">
                 <TabBar.Item
                     title="Home"
