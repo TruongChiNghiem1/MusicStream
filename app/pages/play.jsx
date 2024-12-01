@@ -1,35 +1,32 @@
-import React, { useEffect } from 'react';
+import React, {useEffect, useState} from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
-import SoundPlayer from 'react-native-sound-player';
-
+import { Audio } from 'expo-av';
 const MusicPlayer = () => {
+    const [sound, setSound] = useState();
+    async function playSound() {
+        console.log('Loading Sound');
+        const { sound } = await Audio.Sound.createAsync({
+            uri: 'https://res.cloudinary.com/dz96u1u2a/video/upload/v1733061842/TinhLo-LeQuyen_xvpkdw.mp3',
+            shouldPlay: true
+        });
+        setSound(sound);
+
+        console.log('Playing Sound');
+        await sound.playAsync();
+    }
+
     useEffect(() => {
-        // Tải nhạc khi component được mount
-        // SoundPlayer.loadUrl('https://example.com/your-audio-file.mp3'); // Thay thế bằng URL của file âm thanh
-
-        return () => {
-            SoundPlayer.stop();
-        };
-    }, []);
-
-    const playMusic = () => {
-        SoundPlayer.play();
-    };
-
-    const pauseMusic = () => {
-        SoundPlayer.pause();
-    };
-
-    const stopMusic = () => {
-        SoundPlayer.stop();
-    };
-
+        return sound
+            ? () => {
+                console.log('Unloading Sound');
+                sound.unloadAsync();
+            }
+            : undefined;
+    }, [sound]);
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Music Player</Text>
-            <Button title="Play" onPress={playMusic} />
-            <Button title="Pause" onPress={pauseMusic} />
-            <Button title="Stop" onPress={stopMusic} />
+            <Button title="Play Sound" onPress={playSound} />
         </View>
     );
 };
