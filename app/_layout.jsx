@@ -11,6 +11,11 @@ import Play from "./pages/play";
 import PlayList from "./pages/playList";
 import '../app/scss/app.scss';
 import DetailPopularArtistsDetail from "./pages/detailPopularArtistsDetail";
+import LikeTrack from './pages/Library/LikedTrack';
+import ListenHistory from './pages/Library/ListenHistory';
+import Recently from './pages/Library/Recenttly';
+import Albums from './pages/Library/Albums';
+
 const Stack = createNativeStackNavigator();
 export default function RootLayout() {
   return (
@@ -101,6 +106,41 @@ export default function RootLayout() {
                   options={({ navigation }) => ({
                   })}
               />
+
+                <Stack.Screen
+                  name="LikeTrack"
+                  component={LikeTrack}
+                  options={({ navigation }) => ({
+                  })}
+              />
+                <Stack.Screen
+                  name="ListenHistory"
+                  component={ListenHistory}
+                  options={({ navigation }) => ({
+                  })}
+              />
+
+                <Stack.Screen
+                  name="Playlist"
+                  component={PlayList}
+                  options={({ navigation }) => ({
+                  })}
+              />
+              
+                <Stack.Screen
+                  name="Recently"
+                  component={Recently}
+                  options={({ navigation }) => ({
+                  })}
+              />
+
+                <Stack.Screen
+                  name="Albums"
+                  component={Albums}
+                  options={({ navigation }) => ({
+                  })}
+              />
+
           </Stack.Navigator>
       </NavigationContainer>
   );

@@ -2,12 +2,7 @@ import {ScrollView, Text, TextInput, View, StyleSheet, Dimensions, Image, Toucha
 import Icon from "react-native-vector-icons/FontAwesome5";
 import * as React from "react";
 import Carousel from "react-native-reanimated-carousel";
-import imgSuggestions from "../../assets/images/home/Image 8.png";
-import imgChart from "../../assets/images/home/Image 13.png";
-import imgTrending from "../../assets/images/home/Image 16.png";
-
 export default function Home ({navigation}) {
-    const width = Dimensions.get('window').width;
     const imgSuggestions = require('../../assets/images/home/Image 8.png')
     const imgChart = require('../../assets/images/home/Image 13.png')
     const imgTrending = require('../../assets/images/home/Image 16.png')
@@ -15,11 +10,10 @@ export default function Home ({navigation}) {
     return (
         <ScrollView>
             <View style={{
-                margin: 20
+                marginLeft: 20,
+                marginRight: 20
             }}>
-                <View style={{
-                    marginTop: 20
-                }}>
+                <View>
                     <Text style={{
                         color: '#8f8f8f',
                         fontSize: 20,

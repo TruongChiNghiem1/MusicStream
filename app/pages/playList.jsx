@@ -1,13 +1,8 @@
 import {Image, ScrollView, Text, TouchableOpacity, View} from "react-native";
-import imgChart from "../../assets/images/home/Image 13.png";
 import * as React from "react";
 import Icon from "react-native-vector-icons/FontAwesome5";
-import imgDot from "../../assets/images/chart_detail/dot.png";
-import imgShape from "../../assets/images/chart_detail/Image 23.png";
-import Carousel from "react-native-reanimated-carousel";
 
 export default function PlayList({navigation}) {
-    const imgChart = require('../../assets/images/home/Image 13.png')
     const imgDot = require('../../assets/images/chart_detail/dot.png')
     const imgShape = require('../../assets/images/chart_detail/Image 23.png')
     return (

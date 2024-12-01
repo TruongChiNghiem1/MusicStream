@@ -7,20 +7,12 @@ import {useState} from "react";
 import Home from "./home";
 import Search from "./search";
 import Feed from "./feed";
-import Library from "./library";
+import Library from "./Library/Library";
 
 export default function Main({navigation}) {
     const [state, setState] = useState({
         selectedTab: 'home',
     })
-
-    let renderContent = (pageText) => {
-        return (
-            <View style={{ flex: 1, alignItems: 'center', backgroundColor: 'white' }}>
-                <Text style={{ margin: 50 }}>{pageText}</Text>
-            </View>
-        )
-    }
 
     let onChangeTab = (tabName) => {
         setState({
@@ -37,7 +29,7 @@ export default function Main({navigation}) {
 
             <TabBar
                 unselectedTintColor="#949494"
-                tintColor="#33A3F4"
+                tintColor="#ff5400"
                 barTintColor="#f5f5f5">
                 <TabBar.Item
                     title="Home"

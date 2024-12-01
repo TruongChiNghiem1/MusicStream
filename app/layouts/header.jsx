@@ -1,5 +1,5 @@
-import {Image, ScrollView, Text, View} from "react-native";
-import imgLogo from "../../assets/images/Image 7.png";
+import {Image, View} from "react-native";
+import imgLogo from "../../assets/images/logo/primary_logo.png";
 import Icon from "react-native-vector-icons/FontAwesome5";
 import imgAvtHome from "../../assets/images/home/Avatar 1.png";
 import * as React from "react";
@@ -20,8 +20,12 @@ export default function Header() {
                 paddingBottom: 10,
             }}>
                 <View>
-                    <Image style={{
-                    }} source={imgLogo} />
+                    <Image 
+                    style={{
+                        width: 50, 
+                        height: 50,
+                    }} 
+                    source={imgLogo} />
                 </View>
 
                 <View style={{
