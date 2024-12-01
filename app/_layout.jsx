@@ -10,6 +10,7 @@ import Main from "./pages/main";
 import Play from "./pages/play";
 import PlayList from "./pages/playList";
 import '../app/scss/app.scss';
+import DetailPopularArtistsDetail from "./pages/detailPopularArtistsDetail";
 const Stack = createNativeStackNavigator();
 export default function RootLayout() {
   return (
@@ -92,7 +93,12 @@ export default function RootLayout() {
                   name="playList"
                   component={PlayList}
                   options={({ navigation }) => ({
-
+                  })}
+              />
+              <Stack.Screen
+                  name="DetailPopularArtistsDetail"
+                  component={DetailPopularArtistsDetail}
+                  options={({ navigation }) => ({
                   })}
               />
           </Stack.Navigator>

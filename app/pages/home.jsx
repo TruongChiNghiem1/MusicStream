@@ -307,10 +307,11 @@ export default function Home ({navigation}) {
                             overflow: 'visible',
                         }}
                         renderItem={({ item }) => (
-                            <View
+                            <TouchableOpacity
                                 style={{
                                     width: 130,
                                 }}
+                                onPress={() => navigation.navigate('DetailPopularArtistsDetail')}
                             >
                                 <Image style={{
                                     width: 136,
@@ -344,7 +345,7 @@ export default function Home ({navigation}) {
                                         }}>Follow</Text>
                                     </TouchableOpacity>
                                 </View>
-                            </View>
+                            </TouchableOpacity>
                         )}
                         mode="stack"
                         modeConfig={{
