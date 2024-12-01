@@ -22,7 +22,7 @@ export default function Welcome({navigation}) {
                 <View>
                     <PrimaryButton
                         text={'Create an account'}
-                        onPress={() => {}}
+                        onPress={() => navigation.navigate('SignUpEmail')}
                     />
 
                      <SecondaryButton
