@@ -15,6 +15,10 @@ import LikeTrack from './pages/Library/LikedTrack';
 import ListenHistory from './pages/Library/ListenHistory';
 import Recently from './pages/Library/Recenttly';
 import Albums from './pages/Library/Albums';
+import SignUpEmail from "./pages/SignUp/SignUpEmail";
+import SignUpOTP from "./pages/SignUp/SignUpOTP";
+import SignUpProfile from "./pages/SignUp/SignUpProfile";
+
 const Stack = createNativeStackNavigator();
 export default function RootLayout() {
   return (
@@ -139,7 +143,42 @@ export default function RootLayout() {
                   options={({ navigation }) => ({
                   })}
               />
+              <Stack.Screen name="SignUpEmail" component={SignUpEmail}
+                            options={({ navigation }) => ({
+                                headerTitle: () => null,
+                                headerLeft: () => (
+                                    <View>
 
+                                    </View>
+                                ),
+                                headerShadowVisible: false,
+                                headerShown: false
+                            })}
+                />
+              <Stack.Screen name="SignUpOTP" component={SignUpOTP}
+                            options={({ navigation }) => ({
+                                headerTitle: () => null,
+                                headerLeft: () => (
+                                    <View>
+
+                                    </View>
+                                ),
+                                headerShadowVisible: false,
+                                headerShown: false
+                            })}
+              />
+              <Stack.Screen name="SignUpProfile" component={SignUpProfile}
+                            options={({ navigation }) => ({
+                                headerTitle: () => null,
+                                headerLeft: () => (
+                                    <View>
+
+                                    </View>
+                                ),
+                                headerShadowVisible: false,
+                                headerShown: false
+                            })}
+              />
           </Stack.Navigator>
       </NavigationContainer>
   );
