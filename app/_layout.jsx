@@ -15,7 +15,6 @@ import LikeTrack from './pages/Library/LikedTrack';
 import ListenHistory from './pages/Library/ListenHistory';
 import Recently from './pages/Library/Recenttly';
 import Albums from './pages/Library/Albums';
-
 const Stack = createNativeStackNavigator();
 export default function RootLayout() {
   return (
