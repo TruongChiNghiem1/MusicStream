@@ -2,7 +2,6 @@ import {ImageBackground, Text, TouchableOpacity, View} from "react-native";
 import PrimaryButton from "../components/PrimaryButton";
 import SecondaryButton from "../components/SecondaryButton";
 const imgBackground = require("../../assets/images/welcome/Sound.png")
-const imgLogo = require("../../assets/images/welcome/Image 4.png")
 export default function Welcome({navigation}) {
     return (
         <ImageBackground 

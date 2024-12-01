@@ -1,8 +1,11 @@
-import {Alert, Image, Text, TextInput, TouchableOpacity, View} from "react-native";
+import {Alert, Image, ImageBackground, Text, TextInput, TouchableOpacity, View, StyleSheet} from "react-native";
 import {useState} from "react";
+import PrimaryButton from "../components/PrimaryButton";
+import background from '../../assets/images/welcome/login_bg.png';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 export default function Login({navigation}) {
-    const imgLogo = require("../../assets/images/Image 7.png")
+    const imgLogo = require("../../assets/images/logo/logo.png")
     const [username, setUsername] = useState()
     const [password, setPassword] = useState()
 
@@ -27,55 +30,75 @@ export default function Login({navigation}) {
     }
 
     return (
-        <View style={{
-            display: 'flex',
-            alignItems: 'center',
-            width: '100%',
-            paddingTop: 150,
-            flex: 1,
-            backgroundColor: 'white'
-        }}>
-            <View
-                
-            >
-
+        <ImageBackground
+            style={styles.imageBackground}
+            source={background} 
+            resizeMode="cover"
+            blurRadius={20}
+            
+        >
+             <View style={styles.overlay} />
+             <View
+                style={{
+                    width: '90%',
+                    display: 'flex',
+                    justifyContent: 'flex-start'
+                }}
+             >
+                <TouchableOpacity
+                    style={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                    }}
+                    onPress={() => navigation.navigate('Welcome')}>
+                        <Icon style={{
+                            marginRight: 10
+                        }} name="chevron-left" size={20} />
+            </TouchableOpacity>
+        
             </View>
-            <Image style={{
-                width: 70,
-                height: 50,
+            <View
+                style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    width: '100%',
+                    paddingTop: 150
+                }}
+            >
+                 <Image style={{
+                width: 180,
+                height: 145
             }} source={imgLogo} />
             <Text style={{
                 fontWeight: 'bold',
-                fontSize: 40,
-                marginTop: 10
-            }}>Hello Again!</Text>
-            <Text style={{
-                marginTop: 3,
-                color: '#989898',
-                fontSize: 15,
-            }}>Log into your account</Text>
-
-            <View style={{
-                marginTop: 30
-            }}>
-                <TextInput
-                    onChangeText={setUsername}
-                    placeholder="Enter your email address"
-                    style={{
-                        height: 40,
-                        width: 300,
-                        margin: 12,
-                        borderWidth: 1,
-                        padding: 10,
-                        borderRadius: 12,
-                        borderColor: '#989898',
-                        paddingLeft: 20
-                    }}
-                    placeholderTextColor='#989898'
-                />
-            </View>
-            <View style={{
-            }}>
+                fontSize: 14,
+                color: 'white'
+            }}>Welcome back!</Text>
+            <Text
+                style={{
+                    fontSize: 12,
+                    color: 'white'
+                }}
+            >
+                Ready to discover your next favorite track
+            </Text>
+            <TextInput
+                onChangeText={setUsername}
+                placeholder="Enter your email address"
+                style={{
+                    height: 40,
+                    width: 300,
+                    margin: 12,
+                    borderWidth: 1,
+                    padding: 10,
+                    borderRadius: 12,
+                    borderColor: '#ffffff',
+                    paddingLeft: 20
+                }}
+                placeholderTextColor='#ffffff'
+            />
+        
                 <TextInput
                     secureTextEntry={true}
                     onChangeText={setPassword}
@@ -83,49 +106,61 @@ export default function Login({navigation}) {
                     style={{
                         height: 40,
                         width: 300,
-                        margin: 12,
                         borderWidth: 1,
                         padding: 10,
                         borderRadius: 12,
-                        borderColor: '#989898',
+                        borderColor: '#ffffff',
                         paddingLeft: 20
                     }}
-                    placeholderTextColor='#989898'
+                    placeholderTextColor='#ffffff'
                 />
-            </View>
+        
             <View style={{
+                marginTop: 6,
                 width: 280,
                 display: 'flex',
                 alignItems: 'flex-end',
             }}>
                 <TouchableOpacity>
                     <Text style={{
-                        color: '#019d80'
+                        color: 'white'
                     }}>Forgot password?</Text>
                 </TouchableOpacity>
             </View>
 
-            <View style={{
-                marginTop: 25
-            }}>
-                <TouchableOpacity
-                    classname='button-primary'
-                    onPress={toLogin}
-                    style={{
-                        borderWidth: 1,
-                        width: 300,
-                        height: 45,
-                        borderRadius: 60,
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center'
-                    }}>
-                    <Text style={{
-                        color: 'white',
-                        fontSize: 18
-                    }}>Continue</Text>
-                </TouchableOpacity>
+            <PrimaryButton
+                style={{
+                    width: 300,
+                    height: 45,
+                    borderRadius: 60,
+                    marginTop: 6
+                }}
+                styleText={{
+                    fontSize: 16
+                }}
+                text={'Continue'}
+                onPress={toLogin}
+            />
             </View>
-        </View>
+        </ImageBackground>
     )
 }
+
+const styles = StyleSheet.create({
+    imageBackground: {
+        flex: 1,
+        paddingBottom: 40,
+        paddingTop: 50,
+        display: 'flex',
+        alignItems: 'center',
+        width: '100%',
+    },
+    overlay: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundColor: 'rgba(0, 0, 0, 0.3)', 
+    },
+});

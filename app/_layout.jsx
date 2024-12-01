@@ -11,8 +11,6 @@ import Play from "./pages/play";
 import PlayList from "./pages/playList";
 import '../app/scss/app.scss';
 const Stack = createNativeStackNavigator();
-const imgAvtHome = require('../assets/images/home/Avatar 1.png')
-const imgLogo = require("../assets/images/Image 7.png")
 export default function RootLayout() {
   return (
       <NavigationContainer independent={true}>
@@ -31,19 +29,11 @@ export default function RootLayout() {
                       headerTitle: () => null,
                       headerLeft: () => (
                           <View>
-                              <TouchableOpacity
-                                  style={{
-                                      display: 'flex',
-                                      flexDirection: 'row',
-                                      alignItems: 'center',
-                                  }}
-                                  onPress={() => navigation.navigate('Welcome')}>
-                                  <Icon style={{
-                                      marginRight: 10
-                                  }} name="chevron-left" size={20} />
-                              </TouchableOpacity>
+                             
                           </View>
-                      )
+                      ),
+                    headerShadowVisible: false, 
+                    headerShown: false
                   })}
               />
               <Stack.Screen
