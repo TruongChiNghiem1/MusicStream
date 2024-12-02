@@ -63,7 +63,7 @@ export default function Home ({navigation}) {
                         marginTop: 15
                     }}
                 >
-                    <Suggestions/>
+                    <Suggestions navigation={navigation}/>
                 </View>
 
                 <View style={{
