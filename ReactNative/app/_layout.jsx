@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {View, Text, TouchableOpacity, Image} from 'react-native';
+import {View,TouchableOpacity} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Welcome from './pages/welcome';
@@ -21,7 +21,7 @@ import SignUpProfile from "./pages/SignUp/SignUpProfile";
 
 const Stack = createNativeStackNavigator();
 export default function RootLayout() {
-  return (
+    return (
       <NavigationContainer independent={true}>
           <Stack.Navigator>
               <Stack.Screen

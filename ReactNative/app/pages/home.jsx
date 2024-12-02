@@ -4,10 +4,27 @@ import * as React from "react";
 import Carousel from "react-native-reanimated-carousel";
 import Suggestions from "./Home/Suggestions";
 import TrendingAlbums from "./Home/TrendingAlbums";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import {useEffect, useState} from "react";
 export default function Home ({navigation}) {
     const imgChart = require('../../assets/images/home/Image 13.png')
-    const imgTrending = require('../../assets/images/home/Image 16.png')
     const imgPopular = require('../../assets/images/home/Image 10.png')
+
+    const [user, setUser] = useState({ firstName: 'John', lastName: 'Doe', avatar: 'https://res.cloudinary.com/dz96u1u2a/image/upload/v1683774881/d970d56d5350d2624041937de985370c_fzbyaf.jpg'})
+    const getDataUser = async () =>{
+        try {
+            const userStorage = await AsyncStorage.getItem('user')
+            const user = JSON.parse(userStorage);
+            setUser(user)
+        }catch (e) {
+            console.log('Error: ', e.message)
+        }
+    }
+
+    useEffect(() => {
+        getDataUser()
+    }, []);
+
     return (
         <ScrollView>
             <View style={{
@@ -26,7 +43,7 @@ export default function Home ({navigation}) {
                     <Text style={{
                         fontSize: 30,
                         fontWeight: 'bold',
-                    }}>Ashley Scott</Text>
+                    }}>{user?.firstName}{' '}{user?.lastName}</Text>
                 </View>
 
                 <View style={{
@@ -46,8 +63,8 @@ export default function Home ({navigation}) {
                         paddingLeft: 47,
                         fontSize: 18
                     }}
-                    placeholder="What you want to listen to"
-                    placeholderTextColor="rgba(143,143,143,0.53)"
+                   placeholder="What you want to listen to"
+                   placeholderTextColor="rgba(143,143,143,0.53)"
                     />
                 </View>
 
