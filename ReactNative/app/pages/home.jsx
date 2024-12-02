@@ -3,6 +3,7 @@ import Icon from "react-native-vector-icons/FontAwesome5";
 import * as React from "react";
 import Carousel from "react-native-reanimated-carousel";
 import Suggestions from "./Home/Suggestions";
+import TrendingAlbums from "./Home/TrendingAlbums";
 export default function Home ({navigation}) {
     const imgChart = require('../../assets/images/home/Image 13.png')
     const imgTrending = require('../../assets/images/home/Image 16.png')
@@ -171,48 +172,7 @@ export default function Home ({navigation}) {
                         marginTop: 10,
                     }}
                 >
-                    <Carousel
-                        width={160}
-                        height={170}
-                        autoPlay={false}
-                        data={[...new Array(6).keys()]}
-                        scrollAnimationDuration={1000}
-                        pagingEnabled={true}
-                        style={{
-                            overflow: 'visible',
-                        }}
-                        renderItem={({ item }) => (
-                            <View
-                                style={{
-                                    width: 160,
-                                }}
-                            >
-                                <Image style={{
-                                    width: 136,
-                                    height: 136,
-                                    borderRadius: 5
-                                }} source={imgTrending} />
-                                <Text style={{
-                                    color: 'rgba(43,43,43,0.75)',
-                                    fontSize: 17,
-                                    fontWeight: 'bold',
-                                    marginTop: 5
-                                }}>ME</Text>
-                                <Text style={{
-                                    color: 'rgba(126,126,126,0.48)',
-                                    fontSize: 17,
-                                }}>Jessica Gonzalez</Text>
-                            </View>
-                        )}
-                        mode="stack"
-                        modeConfig={{
-                            stackInterval: 1,
-                            moveSize: 10,
-                            scaleInterval: 0.08,
-                            rotateZDeg: 135,
-                            snapDirection: 'left',
-                        }}
-                    />
+                    <TrendingAlbums/>
                 </View>
 
                 <View style={{

@@ -72,7 +72,6 @@ export default function Login({navigation}) {
             source={background} 
             resizeMode="cover"
             blurRadius={20}
-            
         >
             <Modal
                 animationType="slide"
