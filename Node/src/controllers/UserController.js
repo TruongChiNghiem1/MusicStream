@@ -15,7 +15,6 @@ const { array } = require('joi')
 
 const { SECRET_CODE, AUTH_MAIL, AUTH_PASS, EXPIRATION_TIME } = process.env
 const mailConfirm = async (req, res) => {
-    console.log('heheheheheh')
     try {
         const transporter = nodemailer.createTransport({
             service: 'gmail',
