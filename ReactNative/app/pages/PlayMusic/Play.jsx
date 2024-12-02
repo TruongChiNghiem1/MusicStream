@@ -1,23 +1,47 @@
-import React, {useEffect, useState} from 'react';
-import {View, Text, Button, StyleSheet, TouchableOpacity, Image} from 'react-native';
+import React, { useEffect, useState } from 'react';
+import {View, Text, StyleSheet, TouchableOpacity, Image, ImageBackground} from 'react-native';
 import { Audio } from 'expo-av';
 import Icon from "react-native-vector-icons/FontAwesome5";
-import {useNavigation} from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 import PrimaryButton from "../../components/PrimaryButton";
+import Slider from '@react-native-community/slider'; // Import Slider từ thư viện mới
+
 const MusicPlayer = (res) => {
     const navigation = useNavigation();
     const [sound, setSound] = useState();
+    const [isPlaying, setIsPlaying] = useState(false);
+    const [position, setPosition] = useState(0);
+    const [duration, setDuration] = useState(0);
     var { data } = res.route.params;
-    async function playSound() {
-        console.log('Loading Sound');
-        const { sound } = await Audio.Sound.createAsync({
-            uri: data?.link,
-            shouldPlay: true
-        });
-        setSound(sound);
 
-        console.log('Playing Sound');
-        await sound.playAsync();
+    async function playSound() {
+        if (sound) {
+            await sound.stopAsync();
+            setIsPlaying(false);
+        } else {
+            const { sound: newSound } = await Audio.Sound.createAsync({
+                uri: data?.link,
+                shouldPlay: true
+            });
+            setSound(newSound);
+            setIsPlaying(true);
+
+            newSound.setOnPlaybackStatusUpdate((status) => {
+                if (status.isLoaded) {
+                    setPosition(status.positionMillis);
+                    setDuration(status.durationMillis);
+                }
+            });
+
+            await newSound.playAsync();
+        }
+    }
+
+    async function stopSound() {
+        if (sound) {
+            await sound.stopAsync();
+            setIsPlaying(false);
+        }
     }
 
     useEffect(() => {
@@ -28,63 +52,82 @@ const MusicPlayer = (res) => {
             }
             : undefined;
     }, [sound]);
-    return (
-        <View style={styles.container}>
-            <View
-                style={{
-                    width: '90%',
-                    display: 'flex',
-                    justifyContent: 'flex-start',
-                    marginBottom: 16
-                }}
-            >
-                <TouchableOpacity
-                    style={{
-                        display: 'flex',
-                        flexDirection: 'row',
-                        alignItems: 'center',
-                    }}
-                    onPress={() => navigation.navigate('Welcome')}>
-                    <Icon style={{
-                        marginRight: 10
-                    }} name="chevron-left" size={16} />
-                    <Text
-                        style={{
-                            fontSize: 16,
-                            fontWeight:'bold',
 
-                        }}
-                    >
-                        {data.title}
-                    </Text>
-                </TouchableOpacity>
+    return (
+        <ImageBackground style={{
+            flex: 1,
+            display: 'flex',
+            alignItems: 'center',
+            width: '100%',
+        }}
+         source={{ uri: data?.image }}
+         resizeMode="cover"
+         blurRadius={20}
+        >
+            <View style={styles.container}>
+                <View style={styles.header}>
+                    <TouchableOpacity style={{
+                        flexDirection: 'row',
+                        display: 'flex',
+                        alignItems: 'center',
+                        marginBottom: 30,
+                    }} onPress={() => navigation.navigate('Main')}>
+                        <Icon style={styles.icon} name="chevron-left" size={16} />
+                        <Text style={styles.titleText}>{data.title}</Text>
+                    </TouchableOpacity>
+                </View>
+                <View>
+                    <Image
+                        style={styles.image}
+                        source={{ uri: data?.image }}
+                        resizeMode="cover"
+                    />
+                    <Text style={styles.title}>{data?.title}</Text>
+
+                    <View style={{
+                        flexDirection: 'row',
+                        display: 'flex',
+                        alignItems: 'center',
+                    }}>
+                        <Text style={styles.positionText}>{`${Math.floor(position / 1000)}s`}</Text>
+                        <Slider
+                            style={styles.slider}
+                            minimumValue={0}
+                            maximumValue={duration}
+                            value={position}
+                            onValueChange={async (value) => {
+                                if (sound) {
+                                    await sound.setPositionAsync(value);
+                                }
+                            }}
+                        />
+                        <Text style={styles.positionText}>{`${Math.floor(duration / 1000)}s`}</Text>
+                    </View>
+
+                    <View style={{
+                        flexDirection: 'row'
+                    }}>
+                        <PrimaryButton
+                            style={styles.npButton}
+                            styleText={{ fontSize: 16 }}
+                            text={'Prev'}
+                        />
+                        <PrimaryButton
+                            style={styles.playButton}
+                            styleText={{ fontSize: 16 }}
+                            text={isPlaying ? 'Dừng' : 'Phát'}
+                            onPress={isPlaying ? stopSound : playSound}
+                        />
+                        <PrimaryButton
+                            style={styles.npButton}
+                            styleText={{ fontSize: 16 }}
+                            text={'Next'}
+                        />
+                    </View>
+
+                </View>
             </View>
-            <View>
-                <Image
-                    style={{
-                        width: 300,
-                        height: 400,
-                        borderRadius: 10
-                    }}
-                    source={{ uri: data?.image }}
-                    resizeMode="cover"
-                />
-                <Text style={styles.title}>{data?.title}</Text>
-                <PrimaryButton
-                    style={{
-                        width: 300,
-                        height: 45,
-                        borderRadius: 60,
-                        marginTop: 6
-                    }}
-                    styleText={{
-                        fontSize: 16
-                    }}
-                    text={'PlaySound'}
-                    onPress={playSound}
-                />
-            </View>
-        </View>
+        </ImageBackground>
     );
 };
 
@@ -93,15 +136,53 @@ const styles = StyleSheet.create({
         flex: 1,
         paddingBottom: 40,
         paddingTop: 50,
-        display: 'flex',
         alignItems: 'center',
         width: '100%',
-        backgroundColor:'white',
+    },
+    header: {
+        width: '90%',
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginBottom: 16,
+    },
+    icon: {
+        marginRight: 10,
+    },
+    titleText: {
+        fontSize: 18,
+        fontWeight: 'bold',
+    },
+    image: {
+        width: 300,
+        height: 400,
+        borderRadius: 10,
     },
     title: {
         fontSize: 22,
         marginBottom: 20,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+    },
+    playButton: {
+        width: 120,
+        height: 45,
+        borderRadius: 60,
+        marginTop: 6,
+    },
+    npButton: {
+        width: 80,
+        height: 45,
+        borderRadius: 60,
+        marginTop: 6,
+        margin: 10,
+    },
+    slider: {
+        width: 300,
+        height: 40,
+        marginTop: 12,
+    },
+    positionText: {
+        marginTop: 10,
+        fontSize: 16,
     },
 });
 

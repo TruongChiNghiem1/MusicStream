@@ -6,9 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="de6d002d-31ea-48c9-821c-eb942514ca6d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReactNative/app/_layout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/ReactNative/app/_layout.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ReactNative/app/pages/PlayMusic/Play.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/ReactNative/app/pages/PlayMusic/Play.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReactNative/app/pages/login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/ReactNative/app/pages/login.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReactNative/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/ReactNative/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReactNative/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/ReactNative/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +82,7 @@
       <option name="presentableId" value="Default" />
       <updated>1733074225184</updated>
       <workItem from="1733074228677" duration="5229000" />
-      <workItem from="1733112384105" duration="600000" />
+      <workItem from="1733112384105" duration="2062000" />
     </task>
     <servers />
   </component>
