@@ -3,22 +3,21 @@ import * as React from "react";
 import Icon from "react-native-vector-icons/FontAwesome5";
 import ListSongs from "../../components/ListSongs";import {getSongsByAlbum} from "../../service/service";
 import {useEffect, useState} from "react";
-export default function ListOfAlbum(res, { navigation}) {
-    const imgChart = require('../../../assets/images/home/Image 13.png')
+import {useNavigation} from "@react-navigation/native";
+export default function ListOfAlbum(res) {
+    const  navigation = useNavigation()
     const imgDot = require('../../../assets/images/chart_detail/dot.png')
     const [songs, setSongs] = useState([])
     var { data } = res.route.params;
-    console.log(data)
+    let { _id, image, title, artist }  = data
     const handleGetSongsOfAlbum = async () => {
         try {
-            const res = await getSongsByAlbum('674c9d3ec0de44ab89360ab1')
-            console.log(res.data)
+            const res = await getSongsByAlbum(_id)
             setSongs(res.data)
         }catch (e){
             console.log('Error: ', e.message)
         }
     }
-
     useEffect(() => {
         handleGetSongsOfAlbum()
     }, []);
@@ -41,27 +40,7 @@ export default function ListOfAlbum(res, { navigation}) {
                         width: 136,
                         height: 136,
                         borderRadius: 5
-                    }} source={imgChart} />
-                    <View style={{
-                        position: 'absolute',
-                        width: 136,
-                        height: 136,
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        borderRadius: 5
-                    }}>
-                        <Text style={{
-                            fontSize: 23,
-                            color: 'white',
-                            fontWeight: 'bold',
-                            marginBottom: 15,
-                        }}>Top 50</Text>
-                        <Text style={{
-                            fontSize: 15,
-                            color: 'white',
-                        }}>Canada</Text>
-                    </View>
+                    }} source={{ uri: image}} />
                 </View>
 
                 <View style={{
@@ -72,7 +51,7 @@ export default function ListOfAlbum(res, { navigation}) {
                         fontSize: 26,
                         fontWeight: 'bold',
                         marginBottom: 8,
-                    }}>Top 50 - Canada</Text>
+                    }}>{title}</Text>
                     <View style={{
                         flexDirection: 'row',
                         alignItems: 'center',
@@ -100,7 +79,7 @@ export default function ListOfAlbum(res, { navigation}) {
                     <Text style={{
                         color: 'rgb(126,126,126)',
                         fontSize: 17,
-                    }}>Daily chart-toppers update</Text>
+                    }}>Daily chart - toppers update</Text>
                 </View>
             </View>
 
@@ -148,7 +127,11 @@ export default function ListOfAlbum(res, { navigation}) {
                     </View>
                 </View>
             </View>
-            <ListSongs data={songs}/>
+            <ListSongs
+                data={songs}
+                artist={artist}
+                navigation={navigation}
+            />
         </View>
     )
 }

@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="de6d002d-31ea-48c9-821c-eb942514ca6d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ReactNative/app/components/ListSongs.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReactNative/app/_layout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/ReactNative/app/_layout.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReactNative/app/pages/Home/TrendingAlbums.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/ReactNative/app/pages/Home/TrendingAlbums.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReactNative/app/pages/chartDetail.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/ReactNative/app/pages/MusicList/ListOfAlbum.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReactNative/app/service/service.js" beforeDir="false" afterPath="$PROJECT_DIR$/ReactNative/app/service/service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReactNative/app/components/ListSongs.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/ReactNative/app/components/ListSongs.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReactNative/app/pages/MusicList/ListOfAlbum.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/ReactNative/app/pages/MusicList/ListOfAlbum.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +84,7 @@
       <updated>1733074225184</updated>
       <workItem from="1733074228677" duration="5229000" />
       <workItem from="1733112384105" duration="2062000" />
-      <workItem from="1733118803663" duration="1022000" />
+      <workItem from="1733118803663" duration="1650000" />
     </task>
     <servers />
   </component>

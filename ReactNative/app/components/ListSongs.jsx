@@ -2,17 +2,20 @@ import React from "react";
 import {Image, ScrollView, Text, TouchableOpacity, View} from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome5";
 import imgDot from "../../assets/images/chart_detail/dot.png";
-const ListSongs = ( { data } ) => {
+const ListSongs = ( { data, artist, navigation } ) => {
     return (
         <ScrollView>
             {data.length > 0 ? (
                 <>
                     {data.map((song, key) => {
                         return(
-                            <TouchableOpacity key={`song_${key + 1}`} style={{
-                                marginBottom: 12
-                            }}
-                                              onPress={() => navigation.navigate('Play', {data: song})}>
+                            <TouchableOpacity
+                                key={`song_${key + 1}`}
+                                style={{
+                                    marginBottom: 12
+                                }}
+                                onPress={() => navigation.navigate('Play', {data: song})}
+                            >
                                 <View style={{
                                     flexDirection: 'row',
                                     justifyContent: 'space-between',
@@ -39,7 +42,7 @@ const ListSongs = ( { data } ) => {
                                                 color: 'rgb(126,126,126)',
                                                 fontSize: 14,
                                                 marginBottom: 4,
-                                            }}>{song?.artist}</Text>
+                                            }}>{artist}</Text>
                                             <View style={{
                                                 flexDirection: 'row',
                                                 alignItems: 'center',
