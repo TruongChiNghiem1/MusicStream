@@ -12,8 +12,9 @@ exports.getAllAlbums = async (req, res) => {
 };
 
 exports.getAllSongs = async (req, res) => {
+    const { query } = req.query; // Lấy truy vấn từ tham số
     try {
-        const songs = await Song.find();
+        const songs = await Song.find(query ? { title: { $regex: query, $options: 'i' } } : {});
         res.status(200).json(songs);
     } catch (error) {
         res.status(500).json({ message: error.message });
