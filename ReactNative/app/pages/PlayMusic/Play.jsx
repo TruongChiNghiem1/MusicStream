@@ -13,9 +13,9 @@ const MusicPlayer = (res) => {
     const [isPlaying, setIsPlaying] = useState(false);
     const [position, setPosition] = useState(0);
     const [duration, setDuration] = useState(0);
-    const [tracks, setTracks] = useState([]);
-    const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
     var { data } = res.route.params;
+    const [tracks, setTracks] = useState(data);
+    const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
 
     const handleGetAlbums = async () => {
         try {
@@ -135,7 +135,7 @@ const MusicPlayer = (res) => {
                 }}>
                     <Image
                         style={styles.image}
-                        source={{ uri: tracks[currentTrackIndex]?.image }} // Cập nhật ảnh bài hát
+                        source={{ uri: tracks[currentTrackIndex]?.image }}
                         resizeMode="cover"
                     />
                     <Text style={styles.title}>{tracks[currentTrackIndex]?.title || 'No Title'}</Text>
