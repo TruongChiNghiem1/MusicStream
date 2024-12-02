@@ -5,13 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="de6d002d-31ea-48c9-821c-eb942514ca6d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Node/src/models/Artist.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ReactNative/app/pages/Home/Suggestions.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ReactNative/app/service/service.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Node/src/controllers/MusicController.js" beforeDir="false" afterPath="$PROJECT_DIR$/Node/src/controllers/MusicController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Node/src/routers/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/Node/src/routers/home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReactNative/app/pages/Chatbot.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/ReactNative/app/pages/Chatbot.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReactNative/app/pages/ChatbotApp.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/ReactNative/app/pages/ChatbotApp.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReactNative/app/pages/main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/ReactNative/app/pages/main.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Node/src/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/Node/src/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReactNative/app/_layout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/ReactNative/app/_layout.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReactNative/app/components/url.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/ReactNative/app/components/url.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReactNative/app/pages/home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/ReactNative/app/pages/home.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReactNative/app/pages/play.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/ReactNative/app/pages/PlayMusic/Play.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,21 +23,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "TruongChiNghiem1"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;TruongChiNghiem1&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/TruongChiNghiem1/MusicStream.git",
-    "accountId": "b278dfa9-8db7-4ff3-8e30-da8978cd12d9"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/TruongChiNghiem1/MusicStream.git&quot;,
+    &quot;accountId&quot;: &quot;b278dfa9-8db7-4ff3-8e30-da8978cd12d9&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2pcnRTR9jwHDPt1TIJVv34ulN8T" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -45,7 +47,8 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "feature/feature-trang-home",
+    "git-widget-placeholder": "Merging feature/feature-trang-home",
+    "ignore_missing_gitignore": "true",
     "last_opened_file_path": "D:/ReactNative/Subproject/MusicStream/Node/src/models",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -63,6 +66,8 @@
       <recent name="D:\ReactNative\Subproject\MusicStream\Node\src\routers" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\MusicStream\ReactNative\app\service" />
+      <recent name="E:\MusicStream\ReactNative\app\pages\PlayMusic" />
       <recent name="D:\ReactNative\Subproject\MusicStream\ReactNative\app" />
     </key>
   </component>
@@ -81,11 +86,14 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1733074225184</updated>
-      <workItem from="1733074228677" duration="10514000" />
+      <workItem from="1733074228677" duration="5229000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
 </project>

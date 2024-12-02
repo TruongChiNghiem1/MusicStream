@@ -1,9 +1,9 @@
-import {ScrollView, Text, TextInput, View, StyleSheet, Dimensions, Image, TouchableOpacity} from "react-native";
+import {ScrollView, Text, TextInput, View, Image, TouchableOpacity} from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome5";
 import * as React from "react";
 import Carousel from "react-native-reanimated-carousel";
+import Suggestions from "./Home/Suggestions";
 export default function Home ({navigation}) {
-    const imgSuggestions = require('../../assets/images/home/Image 8.png')
     const imgChart = require('../../assets/images/home/Image 13.png')
     const imgTrending = require('../../assets/images/home/Image 16.png')
     const imgPopular = require('../../assets/images/home/Image 10.png')
@@ -63,59 +63,7 @@ export default function Home ({navigation}) {
                         marginTop: 15
                     }}
                 >
-                    <Carousel
-                        width={260}
-                        height={320}
-                        autoPlay={false}
-                        data={[...new Array(6).keys()]}
-                        scrollAnimationDuration={1000}
-                        pagingEnabled={true}
-                        style={{
-                            overflow: 'visible',
-                        }}
-                        renderItem={({ item }) => (
-                            <View
-                                style={{
-                                    width: 200,
-                                }}
-                            >
-                                <Image style={{
-                                    width: 235,
-                                    height: 320,
-                                    borderRadius: 5
-                                }} source={imgSuggestions} />
-                                <View style={{
-                                    position: 'absolute',
-                                    top: 230,
-                                    backgroundColor: 'rgba(0,0,0,0.42)',
-                                    width: 235,
-                                    height: 90
-                                }}>
-                                    <Text style={{
-                                        fontSize: 23,
-                                        color: 'white',
-                                        marginTop: 15,
-                                        marginLeft:20,
-                                        fontWeight: 'bold',
-                                    }}>Reflection</Text>
-                                    <Text style={{
-                                        fontSize: 20,
-                                        color: 'white',
-                                        marginTop: 5,
-                                        marginLeft: 20,
-                                    }}>Christina Aguilera</Text>
-                                </View>
-                            </View>
-                        )}
-                        mode="stack"
-                        modeConfig={{
-                            stackInterval: 1,
-                            moveSize: 10,
-                            scaleInterval: 0.08,
-                            rotateZDeg: 135,
-                            snapDirection: 'left',
-                        }}
-                    />
+                    <Suggestions/>
                 </View>
 
                 <View style={{
