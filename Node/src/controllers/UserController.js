@@ -212,6 +212,7 @@ const signIn = async (req, res) => {
         }
         // Check email
         const user = await User.findOne({ userName })
+        console.log(user)
         if (!user) {
             return res.json({
                 status: 400,
