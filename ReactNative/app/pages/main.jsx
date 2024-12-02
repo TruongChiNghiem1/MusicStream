@@ -8,6 +8,7 @@ import Home from "./home";
 import Search from "./search";
 import Feed from "./feed";
 import Library from "./Library/Library";
+import Chatbot from "./Chatbot";
 
 export default function Main({navigation}) {
     const [state, setState] = useState({
@@ -58,6 +59,13 @@ export default function Main({navigation}) {
                     selected={state.selectedTab === 'library'}
                     onPress={() => onChangeTab('library')}>
                     <Library navigation={navigation}/>
+                </TabBar.Item>
+                <TabBar.Item
+                    icon={<Icon name="chat" />}
+                    title="Chatbot"
+                    selected={state.selectedTab === 'Chatbot'}
+                    onPress={() => onChangeTab('Chatbot')}>
+                    <Chatbot navigation={navigation}/>
                 </TabBar.Item>
             </TabBar>
 

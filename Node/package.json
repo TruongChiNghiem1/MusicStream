@@ -25,6 +25,7 @@
     "nodemailer": "^6.9.9",
     "nodemon": "^3.0.3",
     "react-cookie": "^7.1.0",
+    "react-native-dialogflow": "^3.2.2",
     "socket.io": "^4.7.5"
   }
 }
