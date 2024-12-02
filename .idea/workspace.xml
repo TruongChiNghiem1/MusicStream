@@ -5,15 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="de6d002d-31ea-48c9-821c-eb942514ca6d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReactNative/app/pages/Home/Suggestions.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReactNative/app/service/service.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Node/src/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/Node/src/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReactNative/app/_layout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/ReactNative/app/_layout.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReactNative/app/components/url.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/ReactNative/app/components/url.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReactNative/app/pages/Home/Suggestions.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/ReactNative/app/pages/Home/Suggestions.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReactNative/app/pages/PlayMusic/Play.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/ReactNative/app/pages/PlayMusic/Play.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ReactNative/app/pages/home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/ReactNative/app/pages/home.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReactNative/app/pages/play.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/ReactNative/app/pages/PlayMusic/Play.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +42,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "Merging feature/feature-trang-home",
+    "git-widget-placeholder": "feature/feature-trang-home",
     "ignore_missing_gitignore": "true",
     "last_opened_file_path": "D:/ReactNative/Subproject/MusicStream/Node/src/models",
     "node.js.detected.package.eslint": "true",
