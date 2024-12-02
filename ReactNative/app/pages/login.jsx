@@ -53,9 +53,9 @@ export default function Login({navigation}) {
                 setMessage(res.data.message);
                 setModalVisible(true);
             } else {
-                AsyncStorage.setItem('token', res.data.accessToken);
-                AsyncStorage.setItem('user', JSON.stringify(res.data.user));
-                AsyncStorage.setItem('isLogin', JSON.stringify(true));
+                await AsyncStorage.setItem('token', res.data.accessToken);
+                await AsyncStorage.setItem('user', JSON.stringify(res.data.user));
+                await AsyncStorage.setItem('isLogin', JSON.stringify(true));
 
                 setMessage(res.data.message);
                 navigation.navigate('Main');
