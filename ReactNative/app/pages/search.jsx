@@ -6,7 +6,8 @@ import Icon from "react-native-vector-icons/FontAwesome5";
 import imgDot from "../../assets/images/chart_detail/dot.png";
 import axios from 'axios'; // Thêm axios để gọi API
 import {url} from '../components/url';
-export default function Search() {
+
+export default function Search({navigation}) {
     const [searchQuery, setSearchQuery] = useState('');
     const [musicSuggestions, setMusicSuggestions] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -27,10 +28,8 @@ export default function Search() {
 
     const handleSearch = async () => {
         setLoading(true);
-        console.log('aaaaaaaaaaa')
         try {
             const res = await axios.get(`${url}/home/songs`, { params: { query: searchQuery } }); // Gọi API tìm kiếm
-            console.log(res.data)
             setMusicSuggestions(res.data);
         } catch (error) {
             console.log('Error: ', error.message);
@@ -42,9 +41,8 @@ export default function Search() {
     useEffect(() => {
         if (searchQuery.length > 0) {
             handleSearch();
-        } else {
-            setMusicSuggestions([]); // Xóa kết quả khi không có truy vấn
         }
+        handleSearch();
     }, [searchQuery]);
 
     return (
@@ -63,10 +61,9 @@ export default function Search() {
                 onChangeText={setSearchQuery} // Cập nhật truy vấn tìm kiếm
             />
             <Tabs tabs={tabs}>
-                <View style={style}>
+                <ScrollView style={style}>
                     {loading ? (
-                        <View>
-                        </View>
+                        <Text>Loading...</Text>
                     ) : (
                         musicSuggestions.map((song, index) => (
                             <View key={index} style={{ marginBottom: 12 }}>
@@ -74,7 +71,9 @@ export default function Search() {
                                     flexDirection: 'row',
                                     justifyContent: 'space-between',
                                     alignItems: 'center'
-                                }}>
+                                }}
+                              onPress={() => navigation.navigate("Play" , { data: song })}
+                                >
                                     <View style={{
                                         flexDirection: 'row'
                                     }}>
@@ -83,12 +82,44 @@ export default function Search() {
                                             height: 60,
                                             borderRadius: 5,
                                             marginRight: 15,
-                                        }} source={{ uri: song.image }} /> {/* Hình ảnh bài hát */}
+                                        }} source={{ uri: song.image }} />
                                         <View style={{
                                             display: 'flex',
                                             justifyContent: 'center',
                                         }}>
-
+                                            <Text style={{
+                                                fontSize: 19,
+                                                marginBottom: 2,
+                                            }}>{song.title}</Text>
+                                            <Text style={{
+                                                color: 'rgb(126,126,126)',
+                                                fontSize: 14,
+                                                marginBottom: 4,
+                                            }}>{song.artist}</Text>
+                                            <View style={{
+                                                flexDirection: 'row',
+                                                alignItems: 'center',
+                                                marginBottom: 8
+                                            }}>
+                                                <Icon style={{
+                                                    marginRight: 6,
+                                                    color: '#888888',
+                                                }} name="play" size={10} />
+                                                <Text style={{
+                                                    fontSize: 14,
+                                                    marginRight: 12,
+                                                    color: '#888888',
+                                                }}>{song.views} views</Text>
+                                                <Image source={imgDot} style={{
+                                                    width: 5,
+                                                    height: 5,
+                                                    marginRight: 12,
+                                                }} />
+                                                <Text style={{
+                                                    fontSize: 14,
+                                                    color: '#888888',
+                                                }}>{song.duration}</Text>
+                                            </View>
                                         </View>
                                     </View>
                                     <Icon style={{
@@ -99,10 +130,12 @@ export default function Search() {
                             </View>
                         ))
                     )}
+                </ScrollView>
+                <View style={style}>
+                    <Text>Content of Second Tab</Text>
                 </View>
                 <View style={style}>
-                </View>
-                <View style={style}>
+                    <Text>Content of Third Tab</Text>
                 </View>
             </Tabs>
         </View>
