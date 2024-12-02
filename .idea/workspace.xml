@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="de6d002d-31ea-48c9-821c-eb942514ca6d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ReactNative/app/pages/Home/TrendingAlbums.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReactNative/app/_layout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/ReactNative/app/_layout.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReactNative/app/pages/PlayMusic/Play.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/ReactNative/app/pages/PlayMusic/Play.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReactNative/app/pages/home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/ReactNative/app/pages/home.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReactNative/app/pages/login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/ReactNative/app/pages/login.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReactNative/app/pages/Home/TrendingAlbums.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/ReactNative/app/pages/Home/TrendingAlbums.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +39,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "Merging uyenquyen",
+    "git-widget-placeholder": "uyenquyen",
     "ignore_missing_gitignore": "true",
     "last_opened_file_path": "D:/ReactNative/Subproject/MusicStream/Node/src/models",
     "node.js.detected.package.eslint": "true",
