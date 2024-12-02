@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 import {Image, Text, View} from "react-native";
-import imgTrending from "../../../assets/images/home/Image 16.png";
 import Carousel from "react-native-reanimated-carousel";
 import {getAlbums} from "../../service/service";
 

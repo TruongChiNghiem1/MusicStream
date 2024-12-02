@@ -1,4 +1,4 @@
-import {ScrollView, Text, View} from "react-native";
+import { View} from "react-native";
 import * as React from "react";
 import Icon from "react-native-vector-icons/FontAwesome5";
 import Header from "../layouts/header";
