@@ -5,6 +5,7 @@ import Icon from "react-native-vector-icons/FontAwesome5";
 import { useNavigation } from "@react-navigation/native";
 import PrimaryButton from "../../components/PrimaryButton";
 import Slider from '@react-native-community/slider';
+import { getSongs } from "../../service/service";
 
 const MusicPlayer = (res) => {
     const navigation = useNavigation();
@@ -12,9 +13,20 @@ const MusicPlayer = (res) => {
     const [isPlaying, setIsPlaying] = useState(false);
     const [position, setPosition] = useState(0);
     const [duration, setDuration] = useState(0);
+    const [tracks, setTracks] = useState([]);
+    const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
     var { data } = res.route.params;
 
-    // Hàm chuyển đổi giây sang định dạng phút:giây
+    const handleGetAlbums = async () => {
+        try {
+            const response = await getSongs();
+            setTracks(response.data);
+            setLoading(false);
+        } catch (e) {
+            console.log('Error: ', e.message);
+        }
+    };
+
     const formatTime = (time) => {
         const minutes = Math.floor(time / 60000);
         const seconds = Math.floor((time % 60000) / 1000);
@@ -23,11 +35,11 @@ const MusicPlayer = (res) => {
 
     async function playSound() {
         if (sound) {
-            await sound.playAsync(); // Chỉ phát lại nếu đã dừng
+            await sound.playAsync();
             setIsPlaying(true);
         } else {
             const { sound: newSound } = await Audio.Sound.createAsync({
-                uri: data?.link,
+                uri: tracks[currentTrackIndex]?.link,
                 shouldPlay: true
             });
             setSound(newSound);
@@ -51,7 +63,42 @@ const MusicPlayer = (res) => {
         }
     }
 
+    function nextTrack() {
+        const nextIndex = (currentTrackIndex + 1) % tracks.length;
+        setCurrentTrackIndex(nextIndex);
+        updateTrack(nextIndex);
+    }
+
+    function previousTrack() {
+        const previousIndex = (currentTrackIndex - 1 + tracks.length) % tracks.length;
+        setCurrentTrackIndex(previousIndex);
+        updateTrack(previousIndex);
+    }
+
+    async function updateTrack(index) {
+        if (sound) {
+            await sound.unloadAsync(); // Giải phóng âm thanh hiện tại
+        }
+        const { sound: newSound } = await Audio.Sound.createAsync({
+            uri: tracks[index]?.link,
+            shouldPlay: true
+        });
+        setSound(newSound);
+        setIsPlaying(true);
+        setPosition(0); // Reset vị trí về 0
+
+        newSound.setOnPlaybackStatusUpdate((status) => {
+            if (status.isLoaded) {
+                setPosition(status.positionMillis);
+                setDuration(status.durationMillis);
+            }
+        });
+
+        await newSound.playAsync();
+    }
+
     useEffect(() => {
+        handleGetAlbums();
         return sound
             ? () => {
                 console.log('Unloading Sound');
@@ -67,7 +114,7 @@ const MusicPlayer = (res) => {
             alignItems: 'center',
             width: '100%',
         }}
-                         source={{ uri: data?.image }}
+                         source={{ uri: tracks[currentTrackIndex]?.image }} // Cập nhật ảnh nền
                          resizeMode="cover"
                          blurRadius={20}
         >
@@ -80,7 +127,7 @@ const MusicPlayer = (res) => {
                         marginBottom: 30,
                     }} onPress={() => navigation.navigate('Main')}>
                         <Icon style={styles.icon} name="chevron-left" size={16} />
-                        <Text style={styles.titleText}>{data.title}</Text>
+                        <Text style={styles.titleText}>{tracks[currentTrackIndex]?.title || 'No Title'}</Text>
                     </TouchableOpacity>
                 </View>
                 <View style={{
@@ -88,10 +135,10 @@ const MusicPlayer = (res) => {
                 }}>
                     <Image
                         style={styles.image}
-                        source={{ uri: data?.image }}
+                        source={{ uri: tracks[currentTrackIndex]?.image }} // Cập nhật ảnh bài hát
                         resizeMode="cover"
                     />
-                    <Text style={styles.title}>{data?.title}</Text>
+                    <Text style={styles.title}>{tracks[currentTrackIndex]?.title || 'No Title'}</Text>
 
                     <View style={{
                         flexDirection: 'row',
@@ -120,20 +167,21 @@ const MusicPlayer = (res) => {
                             style={styles.npButton}
                             styleText={{ fontSize: 16 }}
                             text={'Prev'}
+                            onPress={previousTrack} // Gọi hàm previousTrack
                         />
                         <PrimaryButton
                             style={styles.playButton}
                             styleText={{ fontSize: 16 }}
-                            text={isPlaying ? 'Dừng' : 'Phát'}
+                            text={isPlaying ? 'Pause' : 'Play'}
                             onPress={isPlaying ? stopSound : playSound}
                         />
                         <PrimaryButton
                             style={styles.npButton}
                             styleText={{ fontSize: 16 }}
                             text={'Next'}
+                            onPress={nextTrack} // Gọi hàm nextTrack
                         />
                     </View>
-
                 </View>
             </View>
         </ImageBackground>
