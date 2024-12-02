@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from "react";
-import {Image, Text, View} from "react-native";
+import {Image, Text, TouchableOpacity, View} from "react-native";
 import Carousel from "react-native-reanimated-carousel";
 import {getAlbums} from "../../service/service";
 
-const TrendingAlbums = () =>{
+const TrendingAlbums = ( { navigation }) =>{
     const [albums, setAlbums] = useState([])
     const [loading, setLoading] = useState(true)
 
@@ -38,27 +38,29 @@ const TrendingAlbums = () =>{
                         overflow: 'visible',
                     }}
                     renderItem={({ item: album }) => (
-                        <View
-                            style={{
-                                width: 160,
-                            }}
-                        >
-                            <Image style={{
-                                width: 136,
-                                height: 136,
-                                borderRadius: 5
-                            }}  source={{ uri: album?.image }} />
-                            <Text style={{
-                                color: 'rgba(43,43,43,0.75)',
-                                fontSize: 17,
-                                fontWeight: 'bold',
-                                marginTop: 5
-                            }}>{album.title}</Text>
-                            <Text style={{
-                                color: 'rgba(126,126,126,0.48)',
-                                fontSize: 17,
-                            }}>{album.artist}</Text>
-                        </View>
+                        <TouchableOpacity onPress={() => navigation.navigate('ListOfAlbum', {data: album})}>
+                            <View
+                                style={{
+                                    width: 160,
+                                }}
+                            >
+                                <Image style={{
+                                    width: 136,
+                                    height: 136,
+                                    borderRadius: 5
+                                }}  source={{ uri: album?.image }} />
+                                <Text style={{
+                                    color: 'rgba(43,43,43,0.75)',
+                                    fontSize: 17,
+                                    fontWeight: 'bold',
+                                    marginTop: 5
+                                }}>{album.title}</Text>
+                                <Text style={{
+                                    color: 'rgba(126,126,126,0.48)',
+                                    fontSize: 17,
+                                }}>{album.artist}</Text>
+                            </View>
+                        </TouchableOpacity>
                     )}
                     mode="stack"
                     modeConfig={{
