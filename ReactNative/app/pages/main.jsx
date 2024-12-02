@@ -61,7 +61,7 @@ export default function Main({navigation}) {
                     <Library navigation={navigation}/>
                 </TabBar.Item>
                 <TabBar.Item
-                    icon={<Icon name="chat" />}
+                    icon={<Icon name="book" />}
                     title="Chatbot"
                     selected={state.selectedTab === 'Chatbot'}
                     onPress={() => onChangeTab('Chatbot')}>

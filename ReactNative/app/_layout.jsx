@@ -7,7 +7,7 @@ import Login from './pages/login';
 import ChartDetail from './pages/chartDetail';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import Main from "./pages/main";
-import Play from "./pages/PlayMusic/play";
+import Play from "./pages/PlayMusic/Play";
 import PlayList from "./pages/playList";
 import '../app/scss/app.scss';
 import DetailPopularArtistsDetail from "./pages/detailPopularArtistsDetail";
