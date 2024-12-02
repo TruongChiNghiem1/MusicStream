@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import {View, Text, StyleSheet, TouchableOpacity, Image, ImageBackground} from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image, ImageBackground } from 'react-native';
 import { Audio } from 'expo-av';
 import Icon from "react-native-vector-icons/FontAwesome5";
 import { useNavigation } from "@react-navigation/native";
 import PrimaryButton from "../../components/PrimaryButton";
-import Slider from '@react-native-community/slider'; // Import Slider từ thư viện mới
+import Slider from '@react-native-community/slider';
 
 const MusicPlayer = (res) => {
     const navigation = useNavigation();
@@ -14,10 +14,17 @@ const MusicPlayer = (res) => {
     const [duration, setDuration] = useState(0);
     var { data } = res.route.params;
 
+    // Hàm chuyển đổi giây sang định dạng phút:giây
+    const formatTime = (time) => {
+        const minutes = Math.floor(time / 60000);
+        const seconds = Math.floor((time % 60000) / 1000);
+        return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+    };
+
     async function playSound() {
         if (sound) {
-            await sound.stopAsync();
-            setIsPlaying(false);
+            await sound.playAsync(); // Chỉ phát lại nếu đã dừng
+            setIsPlaying(true);
         } else {
             const { sound: newSound } = await Audio.Sound.createAsync({
                 uri: data?.link,
@@ -60,9 +67,9 @@ const MusicPlayer = (res) => {
             alignItems: 'center',
             width: '100%',
         }}
-         source={{ uri: data?.image }}
-         resizeMode="cover"
-         blurRadius={20}
+                         source={{ uri: data?.image }}
+                         resizeMode="cover"
+                         blurRadius={20}
         >
             <View style={styles.container}>
                 <View style={styles.header}>
@@ -76,7 +83,9 @@ const MusicPlayer = (res) => {
                         <Text style={styles.titleText}>{data.title}</Text>
                     </TouchableOpacity>
                 </View>
-                <View>
+                <View style={{
+                    alignItems: 'center',
+                }}>
                     <Image
                         style={styles.image}
                         source={{ uri: data?.image }}
@@ -89,7 +98,7 @@ const MusicPlayer = (res) => {
                         display: 'flex',
                         alignItems: 'center',
                     }}>
-                        <Text style={styles.positionText}>{`${Math.floor(position / 1000)}s`}</Text>
+                        <Text style={styles.positionText}>{formatTime(position)}</Text>
                         <Slider
                             style={styles.slider}
                             minimumValue={0}
@@ -101,7 +110,7 @@ const MusicPlayer = (res) => {
                                 }
                             }}
                         />
-                        <Text style={styles.positionText}>{`${Math.floor(duration / 1000)}s`}</Text>
+                        <Text style={styles.positionText}>{formatTime(duration)}</Text>
                     </View>
 
                     <View style={{
@@ -156,6 +165,7 @@ const styles = StyleSheet.create({
         width: 300,
         height: 400,
         borderRadius: 10,
+        marginBottom: 20,
     },
     title: {
         fontSize: 22,
