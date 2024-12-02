@@ -6,7 +6,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import {useEffect, useState} from "react";
 
 export default function Header() {
-    const [user, setUser] = useState({})
+    const [user, setUser] = useState({ firstName: 'John', lastName: 'Doe', avatar: 'https://res.cloudinary.com/dz96u1u2a/image/upload/v1683774881/d970d56d5350d2624041937de985370c_fzbyaf.jpg'})
     const getDataUser = async () =>{
         try {
             const userStorage = await AsyncStorage.getItem('user')
