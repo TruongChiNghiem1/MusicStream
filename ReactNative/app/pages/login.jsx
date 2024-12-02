@@ -25,26 +25,6 @@ export default function Login({navigation}) {
     const [isError, setIsError] = useState(false);
     const [modalVisible, setModalVisible] = useState(false);
 
-    // const arrLogin = [{
-    //     username: 'admin',
-    //     password: '123'
-    // }, {
-    //     username: 'nghiem',
-    //     password: '123'
-    // }]
-
-    // const toLogin = () => {
-        // var isLogin = arrLogin.some(userPass =>
-        //     userPass.username === username && userPass.password === password
-        // )
-        //
-        // if(isLogin) {
-        //     navigation.navigate('Main')
-        // } else{
-        //     Alert.alert("Thông báo", "Sai tài khoản hoặc mật khẩu")
-        // }
-    // }
-
     const toLogin = async () => {
         try {
             const res = await axios.post(`${url}/user/login`, {userName:username, password});

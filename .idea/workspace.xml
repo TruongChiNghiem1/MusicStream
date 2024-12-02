@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="de6d002d-31ea-48c9-821c-eb942514ca6d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Node/src/controllers/MusicController.js" beforeDir="false" afterPath="$PROJECT_DIR$/Node/src/controllers/MusicController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReactNative/app/pages/search.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/ReactNative/app/pages/search.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReactNative/app/components/ListSongs.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/ReactNative/app/components/ListSongs.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReactNative/app/pages/MusicList/ListOfAlbum.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/ReactNative/app/pages/MusicList/ListOfAlbum.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +41,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feature/feature-trang-home&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;uyenquyen&quot;,
     &quot;ignore_missing_gitignore&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;D:/ReactNative/Subproject/MusicStream/Node/src/models&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -49,7 +49,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;D:\\ReactNative\\Subproject\\MusicStream\\ReactNative\\node_modules\\typescript\\lib&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;E:\\MusicStream\\ReactNative\\node_modules\\typescript\\lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -60,6 +60,8 @@
       <recent name="D:\ReactNative\Subproject\MusicStream\Node\src\routers" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\MusicStream\ReactNative\app\pages\MusicList" />
+      <recent name="E:\MusicStream\ReactNative\app\components" />
       <recent name="E:\MusicStream\ReactNative\app\service" />
       <recent name="E:\MusicStream\ReactNative\app\pages\PlayMusic" />
       <recent name="D:\ReactNative\Subproject\MusicStream\ReactNative\app" />
@@ -82,6 +84,7 @@
       <updated>1733074225184</updated>
       <workItem from="1733074228677" duration="5229000" />
       <workItem from="1733112384105" duration="2062000" />
+      <workItem from="1733118803663" duration="1650000" />
     </task>
     <servers />
   </component>
