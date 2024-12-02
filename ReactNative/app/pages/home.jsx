@@ -189,7 +189,7 @@ export default function Home ({navigation}) {
                         marginTop: 10,
                     }}
                 >
-                    <TrendingAlbums/>
+                    <TrendingAlbums navigation={navigation}/>
                 </View>
 
                 <View style={{

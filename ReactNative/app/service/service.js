@@ -7,3 +7,7 @@ export const getAlbums = async () => {
 export const getSongs = async () => {
     return await axios.get(`${url}/home/songs`);
 }
+
+export const getSongsByAlbum = async (albumId) => {
+    return await axios.get(`${url}/home/albums/${albumId}/songs`);
+}
