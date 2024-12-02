@@ -21,17 +21,15 @@ exports.getAllSongs = async (req, res) => {
 };
 
 exports.getSongsByAlbum = async (req, res) => {
-    const { albumId } = req.params;
+    const { albumId } = req.params; // Lấy albumId từ tham số
+    const albumIdObject = new mongoose.Types.ObjectId(albumId); // Chuyển đổi thành ObjectId
+
     try {
-        const album = await Album.aggregate([
-            {
-                $match: {id: albumId}
-            }
-            ]);
+        const album = await Album.findById(albumIdObject).populate('songs'); // Tìm album và populate danh sách bài hát
         if (!album) {
             return res.status(404).json({ message: 'Album not found' });
         }
-        res.status(200).json(album);
+        res.status(200).json(album.songs); // Trả về danh sách bài hát
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
