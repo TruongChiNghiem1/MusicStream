@@ -5,16 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="de6d002d-31ea-48c9-821c-eb942514ca6d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Node/src/controllers/MusicController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Node/src/models/albums.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Node/src/routers/home.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReactNative/app/config/Dialogflow.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReactNative/app/pages/Chatbot.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReactNative/app/pages/ChatbotApp.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Node/src/models/Artist.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Node/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Node/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Node/src/controllers/UserController.js" beforeDir="false" afterPath="$PROJECT_DIR$/Node/src/controllers/UserController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Node/src/routers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/Node/src/routers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Node/src/controllers/MusicController.js" beforeDir="false" afterPath="$PROJECT_DIR$/Node/src/controllers/MusicController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Node/src/routers/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/Node/src/routers/home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReactNative/app/pages/Chatbot.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/ReactNative/app/pages/Chatbot.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReactNative/app/pages/ChatbotApp.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/ReactNative/app/pages/ChatbotApp.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ReactNative/app/pages/main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/ReactNative/app/pages/main.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -85,7 +81,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1733074225184</updated>
-      <workItem from="1733074228677" duration="5229000" />
+      <workItem from="1733074228677" duration="10514000" />
     </task>
     <servers />
   </component>
