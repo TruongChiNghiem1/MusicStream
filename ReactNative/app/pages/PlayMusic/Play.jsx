@@ -1,8 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 import { Audio } from 'expo-av';
-const MusicPlayer = () => {
+const MusicPlayer = (res) => {
     const [sound, setSound] = useState();
+    var { data } = res.route.params;
+    console.log(data)
     async function playSound() {
         console.log('Loading Sound');
         const { sound } = await Audio.Sound.createAsync({

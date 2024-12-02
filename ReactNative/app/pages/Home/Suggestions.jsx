@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {Image, Text, View} from "react-native";
-import imgSuggestions from "../../../assets/images/home/Image 8.png";
+import {Image, Text, TouchableOpacity, View} from "react-native";
 import Carousel from "react-native-reanimated-carousel";
 import { getSongs} from "../../service/service";
 const Suggestions = ({ navigation }) => {
@@ -37,7 +36,8 @@ const Suggestions = ({ navigation }) => {
                        overflow: 'visible',
                    }}
                    renderItem={({ item: song }) => (
-                       <View
+                       <TouchableOpacity
+                           onPress={() => navigation.navigate("Play" , { data: song })}
                            style={{
                                width: 200,
                            }}
@@ -72,7 +72,7 @@ const Suggestions = ({ navigation }) => {
                                    marginLeft: 20,
                                }}>{song?.view}</Text>
                            </View>
-                       </View>
+                       </TouchableOpacity>
                    )}
                    mode="stack"
                    modeConfig={{
