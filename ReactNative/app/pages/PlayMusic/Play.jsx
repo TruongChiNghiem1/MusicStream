@@ -1,14 +1,17 @@
 import React, {useEffect, useState} from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
+import {View, Text, Button, StyleSheet, TouchableOpacity, Image} from 'react-native';
 import { Audio } from 'expo-av';
+import Icon from "react-native-vector-icons/FontAwesome5";
+import {useNavigation} from "@react-navigation/native";
+import PrimaryButton from "../../components/PrimaryButton";
 const MusicPlayer = (res) => {
+    const navigation = useNavigation();
     const [sound, setSound] = useState();
     var { data } = res.route.params;
-    console.log(data)
     async function playSound() {
         console.log('Loading Sound');
         const { sound } = await Audio.Sound.createAsync({
-            uri: 'https://res.cloudinary.com/dz96u1u2a/video/upload/v1733061842/TinhLo-LeQuyen_xvpkdw.mp3',
+            uri: data?.link,
             shouldPlay: true
         });
         setSound(sound);
@@ -27,8 +30,60 @@ const MusicPlayer = (res) => {
     }, [sound]);
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Music Player</Text>
-            <Button title="Play Sound" onPress={playSound} />
+            <View
+                style={{
+                    width: '90%',
+                    display: 'flex',
+                    justifyContent: 'flex-start',
+                    marginBottom: 16
+                }}
+            >
+                <TouchableOpacity
+                    style={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                    }}
+                    onPress={() => navigation.navigate('Welcome')}>
+                    <Icon style={{
+                        marginRight: 10
+                    }} name="chevron-left" size={16} />
+                    <Text
+                        style={{
+                            fontSize: 16,
+                            fontWeight:'bold',
+
+                        }}
+                    >
+                        {data.title}
+                    </Text>
+                </TouchableOpacity>
+            </View>
+            <View>
+                <Image
+                    style={{
+                        width: 300,
+                        height: 400,
+                        borderRadius: 10
+                    }}
+                    source={{ uri: data?.image }}
+                    resizeMode="cover"
+                />
+                <Text style={styles.title}>{data?.title}</Text>
+                <PrimaryButton
+                    style={{
+                        width: 300,
+                        height: 45,
+                        borderRadius: 60,
+                        marginTop: 6
+                    }}
+                    styleText={{
+                        fontSize: 16
+                    }}
+                    text={'PlaySound'}
+                    onPress={playSound}
+                />
+            </View>
         </View>
     );
 };
@@ -36,13 +91,17 @@ const MusicPlayer = (res) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
+        paddingBottom: 40,
+        paddingTop: 50,
+        display: 'flex',
         alignItems: 'center',
-        backgroundColor: '#f5f5f5',
+        width: '100%',
+        backgroundColor:'white',
     },
     title: {
-        fontSize: 24,
+        fontSize: 22,
         marginBottom: 20,
+        fontWeight: 'bold'
     },
 });
 

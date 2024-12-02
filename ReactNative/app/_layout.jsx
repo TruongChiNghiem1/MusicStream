@@ -95,6 +95,7 @@ export default function RootLayout() {
                   name="Play"
                   component={Play}
                   options={({ navigation }) => ({
+                      headerShown: false
                   })}
               />
               <Stack.Screen
